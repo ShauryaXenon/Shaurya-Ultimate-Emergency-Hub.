@@ -969,7 +969,7 @@
 
         <!-- Emergency Numbers Grid -->
         <section class="emergency-grid">
-            <a href="tel:911" class="emergency-btn">
+            <a href="tel:112" class="emergency-btn">
                 <div style="font-size: 48px;">?????</div>
                 <div class="emergency-number" id="police-number">112</div>
                 <div class="emergency-label">Police Emergency</div>
@@ -1507,7 +1507,7 @@
                 needle.style.transform = `translate(-50%, -100%) rotate(${heading}deg)`;
                 
                 const direction = getDirectionFromHeading(heading);
-                document.getElementById('compassDirection').textContent = `${direction} (${Math.round(heading)}°)`;
+                document.getElementById('compassDirection').textContent = `${direction} (${Math.round(heading)}Â°)`;
             }
         }
 
@@ -1526,7 +1526,7 @@
                 needle.style.transform = `translate(-50%, -100%) rotate(${heading}deg)`;
                 
                 const direction = getDirectionFromHeading(heading);
-                document.getElementById('compassDirection').textContent = `${direction} (${Math.round(heading)}°)`;
+                document.getElementById('compassDirection').textContent = `${direction} (${Math.round(heading)}Â°)`;
             }, 500);
             
             compassActive = true;
@@ -1564,7 +1564,7 @@
                     
                     userLocation = { lat, lng, accuracy };
                     
-                    document.getElementById('locationCoords').textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)} (±${Math.round(accuracy)}m)`;
+                    document.getElementById('locationCoords').textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)} (Â±${Math.round(accuracy)}m)`;
                     
                     const mapDisplay = document.getElementById('mapDisplay');
                     mapDisplay.innerHTML = `
@@ -1572,7 +1572,7 @@
                             <div style="font-size: 64px; margin-bottom: 20px;">???</div>
                             <div style="color: var(--accent-success); font-weight: 700; font-size: 20px;">GPS MAP LOADED</div>
                             <div style="color: var(--accent-primary); margin-top: 12px; font-size: 16px;">?? ${lat.toFixed(4)}, ${lng.toFixed(4)}</div>
-                            <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">Accuracy: ±${Math.round(accuracy)}m</div>
+                            <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">Accuracy: Â±${Math.round(accuracy)}m</div>
                         </div>
                     `;
                     
@@ -1604,7 +1604,7 @@
         function shareLocation() {
             if (userLocation) {
                 const locationUrl = `https://maps.google.com/maps?q=${userLocation.lat},${userLocation.lng}`;
-                const accuracy = userLocation.accuracy ? ` (±${Math.round(userLocation.accuracy)}m)` : '';
+                const accuracy = userLocation.accuracy ? ` (Â±${Math.round(userLocation.accuracy)}m)` : '';
                 const message = `?? EMERGENCY LOCATION SHARE\n?? My exact location: ${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)}${accuracy}\n??? View on map: ${locationUrl}\n? Time: ${new Date().toLocaleString()}\n\nShared via Ultimate Emergency Safety Hub`;
                 
                 if (navigator.share) {
@@ -1920,7 +1920,7 @@
         async function sendEmergencySMS() {
             try {
                 const locationText = userLocation ? 
-                    `?? Location: ${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)} (±${Math.round(userLocation.accuracy || 0)}m)` : 
+                    `?? Location: ${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)} (Â±${Math.round(userLocation.accuracy || 0)}m)` : 
                     '?? Location: GPS not available';
                 
                 const message = `?? ULTIMATE EMERGENCY ALERT\n\nI NEED IMMEDIATE HELP!\n\n${locationText}\n? Time: ${new Date().toLocaleString()}\n\n?? Please send help immediately!\n\nThis is an automated emergency alert from Ultimate Emergency Safety Hub.`;
@@ -1959,7 +1959,7 @@
             }
             
             const locationUrl = `https://maps.google.com/maps?q=${userLocation.lat},${userLocation.lng}`;
-            const accuracy = userLocation.accuracy ? ` (±${Math.round(userLocation.accuracy)}m)` : '';
+            const accuracy = userLocation.accuracy ? ` (Â±${Math.round(userLocation.accuracy)}m)` : '';
             
             const message = `?? LOCATION SHARE\n\nMy current location:\n${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)}${accuracy}\n\n??? View on map: ${locationUrl}\n? Time: ${new Date().toLocaleString()}\n\nShared via Ultimate Emergency Safety Hub`;
             
@@ -2169,7 +2169,7 @@
                 openChatInterface();
             }
             
-            const emergencyResponse = "?? EMERGENCY AI MODE ACTIVATED!\n\nI'm here to help you immediately. What's your emergency?\n\nI can:\n• Call emergency services instantly\n• Guide you through safety procedures\n• Help contact family/friends\n• Provide first aid instructions\n• Keep you calm and safe\n• Record evidence\n• Share your location\n\nPlease tell me what's happening right now.";
+            const emergencyResponse = "?? EMERGENCY AI MODE ACTIVATED!\n\nI'm here to help you immediately. What's your emergency?\n\nI can:\nÂ• Call emergency services instantly\nÂ• Guide you through safety procedures\nÂ• Help contact family/friends\nÂ• Provide first aid instructions\nÂ• Keep you calm and safe\nÂ• Record evidence\nÂ• Share your location\n\nPlease tell me what's happening right now.";
             
             addMessageToChat('ai', emergencyResponse);
             speakText('Emergency AI mode activated! What is your emergency? I am here to help you immediately.');
@@ -2215,11 +2215,11 @@
                     response = "?? EMERGENCY DETECTED! I'm activating emergency protocols immediately.\n\nShould I:\n1. Call emergency services (911)\n2. Contact your family\n3. Activate location sharing\n4. Start recording evidence\n5. Send SMS alerts\n\nSay the number or tell me what you need most urgently!";
                     speakText('Emergency detected! I am activating emergency protocols. What do you need most urgently?');
                 } else if (lowerMessage.includes('study') || lowerMessage.includes('homework') || lowerMessage.includes('learn')) {
-                    response = "?? I can help with your studies! I can assist with:\n\n• Math problems and equations\n• Science concepts and experiments\n• English writing and grammar\n• History facts and timelines\n• Language learning\n• Research guidance\n• Study planning and schedules\n\nWhat subject do you need help with?";
+                    response = "?? I can help with your studies! I can assist with:\n\nÂ• Math problems and equations\nÂ• Science concepts and experiments\nÂ• English writing and grammar\nÂ• History facts and timelines\nÂ• Language learning\nÂ• Research guidance\nÂ• Study planning and schedules\n\nWhat subject do you need help with?";
                 } else if (lowerMessage.includes('location') || lowerMessage.includes('gps') || lowerMessage.includes('map')) {
-                    response = "?? I can help with location services:\n\n• Show your current GPS location\n• Share location with emergency contacts\n• Get directions to safety\n• Find nearby emergency services\n• Track your movement\n\nWhat location assistance do you need?";
+                    response = "?? I can help with location services:\n\nÂ• Show your current GPS location\nÂ• Share location with emergency contacts\nÂ• Get directions to safety\nÂ• Find nearby emergency services\nÂ• Track your movement\n\nWhat location assistance do you need?";
                 } else if (lowerMessage.includes('camera') || lowerMessage.includes('record')) {
-                    response = "?? I can help with camera and recording:\n\n• Start camera for evidence recording\n• Begin high-quality video recording\n• Take emergency photos\n• Stream to emergency contacts\n• Save evidence securely\n\nWhat recording feature do you need?";
+                    response = "?? I can help with camera and recording:\n\nÂ• Start camera for evidence recording\nÂ• Begin high-quality video recording\nÂ• Take emergency photos\nÂ• Stream to emergency contacts\nÂ• Save evidence securely\n\nWhat recording feature do you need?";
                 } else {
                     response = "I'm your Ultimate Emergency AI Assistant. I can help with:\n\n?? Emergency situations and safety\n?? Study help and homework\n??? Location and navigation\n?? Camera and evidence recording\n?? Calls and emergency contacts\n?? Flashlight and signals\n?? Compass and directions\n\nWhat can I help you with today?";
                 }
